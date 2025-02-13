@@ -38,7 +38,7 @@ console.log(area(radius), "Aria of radius: " + radius);
 console.log("====Area of Circle With Manual Formula===\n");
 let radius1 = 10;
 const area1 = function(radius1){
-    return 22/7 * radius * radius;
+    return 22/7 * radius1 * radius1;
 }
 console.log(area(radius), "Aria of radius: " + radius);
 

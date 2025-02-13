@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Assignment 2</title>
+    <style type="text/css">
+        *{
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        pre{
+            border:1px solid black;
+            padding: 20px;
+            width: 700px;
+            text-wrap: wrap;
+            font-size: 16px;
+        }
+        button{
+            background-color: brown;
+            padding: 10px;
+            color: #fff;
+            margin: 10px 0;
+        }
+        span{
+            display: inline-block;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<h3>Q1. Create a object calculator, which will have methods read,add,subtract and multiply. read method will use prompt to ask two values from user.</h3>
+<button onclick="readCalc();">Read</button><span id="read"></span><br/>
+<button onclick="addCalc();">Add Value</button><span id="add"></span><br/>
+<button onclick="subtractCalc();">Subtract Value</button><span id="subtract"></span><br/>
+<button onclick="multiplyCalc();">Multiply Value</button><span id="multiply"></span><br/>
+<pre><h3>Please see above result in console also.</h3></pre>
+
+<h2>Q2. Create an object temperatureConverter with methods:<br/>
+    read() → Asks the user to enter a temperature in Celsius.<br/>
+    toFahrenheit() → Converts it to Fahrenheit.<br/>
+    toKelvin() → Converts it to Kelvin.<br/>
+    display() → Displays the results in the console.
+</h2>
+<button onclick="readTemp();">Read Temp</button><span id="readTemp"></span><br/>
+<button onclick="fTemp();">Fahrenheit</button><span id="fTemp"></span><br/>
+<button onclick="kTemp();">Kelvin</button><span id="kTemp"></span><br/>
+<button onclick="disTemp();">Display</button>
+<br/>
+<pre> OUTPUT<br/><br/><span id="disTemp"></span></pre>
+<h3>Please see above result in console Also.</h3>
+
+<h3>Q3. Tasks:<br/>
+    - Predict the output of the given snippet.<br/>
+    - Explain how hoisting affects the execution 
+    of console.log(z) in second().<br/>
+    - Explain the scope chain for console.log(y) in 
+    second().<br/>
+    - What happens when console.log(y) 
+    is executed outside first() (Line 4)? Why?<br/>
+    - Modify the code to use let instead of var and 
+    observe any differences.
+    </h3>
+<pre>
+/*
+    <b>* Predict the output of the given below snippet.</b>
+*/
+
+<b>var x = 5;
+
+function first(){
+    console.log(x); //Line 1
+    var y = 10;
+
+    function second(){
+        console.log(y); //Line 2
+        console.log(z); //Line 3
+        var z = 20;
+    }
+    second();
+}
+
+first();
+
+console.log(y) //Line 4</b>
+</pre>
+<pre>
+<b>Above OUTPUT:</b>
+
+5
+10
+undefined
+ReferenceError: y is not defined
+</pre>
+<pre>
+<b>Q.</b>  Explain how hoisting affects the execution of console.log(z) in second():
+
+<b>A.</b> When the first() function is invoked, it starts executing, and within it, the second() function is called. During the execution of second(), JavaScript hoists the declaration of var z to the top of the second() function's scope. However, only the declaration is hoisted, not the initialization. This means that when console.log(z) is called before z is initialized, it prints "undefined", as the variable z exists but hasn't been assigned a value yet.
+
+<b>Q.</b> Explain the scope chain for console.log(y) in second().
+
+<b>A.</b> The second() function is lexically placed inside the first() function, meaning it has access to both its own scope and the parent scope. This is called the scope chain. Therefore, when console.log(y) is called inside second(), it refers to the y variable from its parent scope, which is defined in the first() function (var y = 10).
+
+<b>Q.</b> What happens when console.log(y) is executed outside first() (Line 4)? Why?
+
+<b>A.</b> The output will be "ReferenceError: y is not defined" because the variable y is declared inside the first() function. Since variables declared with var have function scope, y is only accessible within the first() function. Therefore, trying to access y outside of that function results in a "ReferenceError" because it's out of scope.
+</pre>
+<pre>
+<b>Modify the code to use let instead of var and observe any differences.</b>
+
+let x = 5;
+function first(){
+    console.log(x); //Line 1
+    let y = 10;
+
+    function second(){
+        console.log(y); //Line 2
+        console.log(z); //Line 3
+        let z = 20;
+    }
+    second();
+}
+
+first();
+
+console.log(y)
+</pre>
+<pre>
+<b>Above OUTPUT:</b>
+
+5
+10
+Reference Error: can not access "z" before initialization.
+</pre>
+<script src="01_assignment.js"></script>
+<script src="02_assignment.js"></script>
+</body>
+</html>

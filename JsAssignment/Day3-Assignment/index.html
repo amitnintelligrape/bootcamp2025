@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Assignment 3</title>
+    <style type="text/css">
+        #timer{
+            font-size: 25px;
+            width: 275px;
+            text-align: center;
+        }
+        pre{
+            border:1px solid black;
+            padding: 20px;
+            width: 70%;
+            text-wrap: wrap;
+            font-size: 16px;
+            line-height: 28px;
+        }
+        .circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            }
+    </style>
+</head>
+<body>
+<h3>Q1. Create a hierarchy of person, employee and developers.</h3>
+<pre>
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.message= function(){
+        console.log(`My Name is ${this.name} and I am ${this.age} year old.`);
+    }
+
+    function Employee(name, age, empid){
+        Person.call(this, name, age);
+        this.empid = empid;
+    }
+
+    Employee.prototype = Object.create(Person.prototype);
+
+    Employee.prototype.empMessage = function(){
+        console.log(`My Name is ${this.name} and I am ${this.age} year old. My EMP id is ${this.empid}`);
+    }
+        
+    function Developer(name, age, empid, language){
+        Employee.call(this, name, age, empid);
+        this.language = language;
+    }
+
+    Developer.prototype = Object.create(Employee.prototype);
+
+    Developer.prototype.devMessage = function(){
+        console.log(`My Name is ${this.name} and I am ${this.age} year old. My EMP id is ${this.empid} my core language is ${this.language}`);
+    }
+        
+    let person1 = new Person('Milan', 30);
+
+    let emp = new Employee('Amit', 40, 2015);
+
+    let dev = new Developer('Amit Narayan', 40, 1706, "JS FrontEnd");
+
+    person1.message(); 
+    emp.message(); 
+    emp.empMessage(); 
+    dev.message(); 
+    dev.empMessage();
+    dev.devMessage(); 
+
+    <b>OUTPUT:
+    // My Name is Milan and I am 30 year old.
+    // My Name is Amit and I am 40 year old.
+    // My Name is Amit and I am 40 year old. My EMP id is 2015
+    // My Name is Amit Narayan and I am 40 year old.
+    // My Name is Amit Narayan and I am 40 year old. My EMP id is 1706
+    // My Name is Amit Narayan and I am 40 year old. My EMP id is 1706 my core language is JS FrontEnd</b>
+</pre>
+<h3>Q2. Given an array, say [1,2,3,4,5]. Print each element of an array after 3 secs.</h3>
+<pre>
+    const arr = [1,2,3,4,5];
+
+    arr.forEach((val) =>{
+        setTimeout(function(){
+        console.log(val);
+        }, val*3000);
+    })
+
+    <b>OUTPUT: Each every 3 sec.
+        1
+        2
+        3
+        4
+        5
+    </b>
+</pre>
+<h3>Q3. Explain difference between Bind and Call (example).</h3>
+<pre>
+<b>//Ans.</b> Both .call() and .bind() are used to set the <em>"this"</em> context. But both have different purpose and behavior lilke .call() used <em>"argument"</em> immidialtly after <em>"this"</em> as well as its executed immidiatly. In other hand .bind() used for create a new function for event handling and it does not executed immidiatly its's only executed when new function is invoked and we can pass <em>"this"</em> context and <em>"argument"</em> passed later. belwo is the Example:
+
+<b>// .call()</b>
+
+<em>function message(name, age){
+    console.log(`Hello my name is ${name}, my age is ${age} year old and I am working as ${this.job}`);
+}
+
+const Eng = {job: "Engineer"};
+message.call(Eng, "Milan", 40);</em> <b>//invoke immidiate and <em>"arg"</em> pass immidiate after <em>"this"</em> during immidiate execution.</b>
+
+<b>// .bind()</b>
+
+<em>function mess(name, age){
+    console.log(`Hello my name is ${name}, my age is ${age} year old and I am working as ${this.job}`);
+}
+const person2 = {job: "Engineer"};
+const result = mess.bind(person2); <b>//create new function and pass first "this" context</b>
+result("Milan", 35); <b>// Passed argument later during new function invoked.</b></em>
+</pre>
+<h3>Q4. Explain 3 properties of argument object.</h3>
+<pre>
+<b>1. We can access the individual argument pass to the function using numeric indices similar to accessing element as an array.</b>
+
+<em>function x(){
+    console.log(arguments[0]);
+    console.log(arguments[1]);
+    console.log(arguments[2]); 
+}
+x('amit', 'Milan', 'Yogi')</em>
+
+<b>Output:
+Amit
+Milan
+Yogi</b>
+
+<b>2. The length property of the argument indicate the number of argument passed.</b>
+
+<em>function example() {
+    console.log("Argument Length is: ", arguments.length);
+}
+
+example(1, 2, 3); // Output: 3
+example("amit", "Milan"); // Output: 2
+<b>OUTPUT
+    Argument Length is: 3
+    Argument Length is: 2</b>
+
+<b>3. We can iterate the arguments with for loop.</b>
+
+<em>function num(){
+    for(let i = 0; i < arguments.length; i++ ){
+       console.log(arguments[i])
+       }
+}
+num(1,2,3,4,5,6)</em>
+<b>OUTPUT
+    1
+    2
+    3
+    4
+    5
+    6
+</b>
+</pre>
+<h3>Q5. Create a function which returns number of invocations and number of instances of a function.</h3>
+<pre>
+    <em>function Instaces(){
+        let count = 0;
+        let instanceSet = new Set();
+        function invoke(instances){
+            count++;
+            instanceSet.add(instances);
+            console.log(`Number of invocations is ${count} and Number of instances is ${instanceSet.size}`)
+        }
+        return invoke;
+    }
+    const resultFunc = Instaces();
+    resultFunc('Hello');
+    resultFunc('How');
+    resultFunc('Are');
+    resultFunc('You');</em>
+
+    <b>OUTPUT
+        Number of invocations is 1 and Number of instances is 1
+        Number of invocations is 2 and Number of instances is 2
+        Number of invocations is 3 and Number of instances is 3
+        Number of invocations is 4 and Number of instances is 4 
+    </b>
+</pre>
+<h3>Q6. Create a counter using closures.</h3>
+<h3>Timer</h3>
+<div id="timer"></div>
+<button onclick="pause()">Pause Timer</button>
+<button onclick="play()">Play Timer</button>
+<button onclick="stop()">Stop Timer</button>
+<p><b>Below is the code for timer using closures</b></p>
+<pre>
+    <em>function createCounter(){
+        let count = 0;
+        isRunning = false;
+        function start(){
+            if (!isRunning) {
+                interval = setInterval(()=>{
+                    count++;
+                    document.getElementById('timer').innerHTML = count;
+                }, 800)
+            }
+            isRunning = true;
+        }
+        function pause(){
+            if (!isRunning) {
+                return;
+            }
+            clearInterval(interval)
+            isRunning = false;
+            document.getElementById('timer').innerHTML = count;
+        }
+        function stop(){
+            if (!isRunning) {
+                return;
+            }
+            isRunning = false;
+            count = 0; 
+            clearInterval(interval);
+            document.getElementById('timer').innerHTML = count;
+        }
+        return{
+            start,
+            pause,
+            stop
+        };
+    }
+    
+    const counter = createCounter();
+    counter.start();
+    function pause(){
+        counter.pause();
+    }
+    function play(){
+        counter.start();
+    }
+    function stop(){
+        counter.stop();
+    }</em>
+</pre>
+<h3>Q7 Explain 5 array methods with example.</h3>
+<pre>
+<b>A. Following are the five methods for array</b>
+
+<em>let array = [1,2,3,4,5,6];
+let newArray = [6,7,8,9,10,3,4,5];
+let nestedArray = [1, [2, [3, [4, 5]]]];</em>
+
+<b>1. reverse() method</b>
+console.log(array.reverse()) <em>Output[6,5,4,3,2,1]</em>
+<b><em>Here reverse() method do the complete array element in reverse order. It is also modify the Original array.</em></b>
+
+<b>2. sort() method</b>
+console.log(newArray.sort()) <em>Output [10,3,4,5,6,7,8,9]</em>
+<b><em>Here sort() method compare the value as a string not numerically. if we need to sort numerically then we have to pass comparition function as below.</em></b>
+console.log(newArray.sort((a,b)=> a-b)) //output [3,4,5,6,7,8,9,10]
+<b><em>Also above codes will be modify the Original array.</em></b>
+
+<b>3. flat() method</b>
+console.log(nestedArray.flat(Infinity)) <em>Output [1,2,3,4,5]</em>
+<b><em>Here flat(Infinity) doing flatten an array of arrays (deeply) recursively. Also it's not modify the original array</em></b>
+
+<b>4. concat() Method.</b>
+console.log(array.concat(newArray)) <em>Output: [1,2,3,4,5,6,6,7,8,9,10,3,4,5]</em>
+<b><em>Here concat() merge newArray under array. It's not modify the original array.</em></b>
+
+<b>5. .push() Method</b>
+array.push(newArray) <em>>Here newArray pushed after last number array.</em>
+console.log(array) 
+<b><em>Here output will be [1, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10, 3, 4, 5] due to push() method modified the original array.</em></b>
+</pre>
+<script src="01_assignment.js"></script>
+</body>
+</html>
