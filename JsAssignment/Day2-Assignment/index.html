@@ -18,6 +18,16 @@
             padding: 10px;
             color: #fff;
             margin: 10px 0;
+            padding: 10px 20px;
+            border-radius: 50px;
+            border:4px solid #ff99cc;
+            cursor: pointer;
+            width: 135px;
+            font-weight: 600;
+        }
+        button:hover{
+            background: #fff;
+            color: #000;
         }
         span{
             display: inline-block;
@@ -28,17 +38,17 @@
 <body>
 <h3>Q1. Create a object calculator, which will have methods read,add,subtract and multiply. read method will use prompt to ask two values from user.</h3>
 <button onclick="readCalc();">Read</button><span id="read"></span><br/>
-<button onclick="addCalc();">Add Value</button><span id="add"></span><br/>
-<button onclick="subtractCalc();">Subtract Value</button><span id="subtract"></span><br/>
-<button onclick="multiplyCalc();">Multiply Value</button><span id="multiply"></span><br/>
+<button onclick="addCalc();">Addition</button><span id="add"></span><br/>
+<button onclick="subtractCalc();">Subtraction</button><span id="subtract"></span><br/>
+<button onclick="multiplyCalc();">Multiply</button><span id="multiply"></span><br/>
 <pre><h3>Please see above result in console also.</h3></pre>
 
-<h2>Q2. Create an object temperatureConverter with methods:<br/>
+<h3>Q2. Create an object temperatureConverter with methods:<br/>
     read() → Asks the user to enter a temperature in Celsius.<br/>
     toFahrenheit() → Converts it to Fahrenheit.<br/>
     toKelvin() → Converts it to Kelvin.<br/>
     display() → Displays the results in the console.
-</h2>
+</h3>
 <button onclick="readTemp();">Read Temp</button><span id="readTemp"></span><br/>
 <button onclick="fTemp();">Fahrenheit</button><span id="fTemp"></span><br/>
 <button onclick="kTemp();">Kelvin</button><span id="kTemp"></span><br/>
@@ -90,15 +100,15 @@ undefined
 ReferenceError: y is not defined
 </pre>
 <pre>
-<b>Q.</b>  Explain how hoisting affects the execution of console.log(z) in second():
+<b>Q.</b>  <em>Explain how hoisting affects the execution of console.log(z) in second():</em>
 
 <b>A.</b> When the first() function is invoked, it starts executing, and within it, the second() function is called. During the execution of second(), JavaScript hoists the declaration of var z to the top of the second() function's scope. However, only the declaration is hoisted, not the initialization. This means that when console.log(z) is called before z is initialized, it prints "undefined", as the variable z exists but hasn't been assigned a value yet.
 
-<b>Q.</b> Explain the scope chain for console.log(y) in second().
+<b>Q.</b> <em>Explain the scope chain for console.log(y) in second().</em>
 
 <b>A.</b> The second() function is lexically placed inside the first() function, meaning it has access to both its own scope and the parent scope. This is called the scope chain. Therefore, when console.log(y) is called inside second(), it refers to the y variable from its parent scope, which is defined in the first() function (var y = 10).
 
-<b>Q.</b> What happens when console.log(y) is executed outside first() (Line 4)? Why?
+<b>Q.</b> <em>What happens when console.log(y) is executed outside first() (Line 4)? Why?</em>
 
 <b>A.</b> The output will be "ReferenceError: y is not defined" because the variable y is declared inside the first() function. Since variables declared with var have function scope, y is only accessible within the first() function. Therefore, trying to access y outside of that function results in a "ReferenceError" because it's out of scope.
 </pre>
@@ -128,6 +138,9 @@ console.log(y)
 5
 10
 Reference Error: can not access "z" before initialization.
+
+
+<b>Note: </b>When above error comes function terminates immediately.
 </pre>
 <script src="01_assignment.js"></script>
 <script src="02_assignment.js"></script>

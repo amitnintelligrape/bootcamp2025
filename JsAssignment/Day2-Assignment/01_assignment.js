@@ -9,7 +9,6 @@
 */
 const calculator = {
     read: function(){
-        this.result ='';
         this.firstValue = parseFloat(prompt("Enter First Value"));
         this.secondValue = parseFloat(prompt("Enter Second Value"));
         if(!isNaN(this.firstValue*this.secondValue)){
@@ -39,7 +38,7 @@ const calculator = {
     },
     multiply: function(){
         if(!isNaN(this.firstValue*this.secondValue)){
-            result = this.firstValue - this.secondValue;
+            result = this.firstValue * this.secondValue;
             console.log(`Current Multiply Value is: ${result}`);
             document.getElementById('multiply').innerHTML=`Current Multiply Value is: ${result}`;
         }else{

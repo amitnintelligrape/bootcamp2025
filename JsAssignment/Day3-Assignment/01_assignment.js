@@ -122,7 +122,7 @@ function createCounter(){
         if (!isRunning) {
             interval = setInterval(()=>{
                 count++;
-                //document.getElementById('timer').innerHTML = count;
+                document.getElementById('timer').innerHTML = count;
             }, 800)
         }
         isRunning = true;
@@ -133,7 +133,7 @@ function createCounter(){
         }
         clearInterval(interval)
         isRunning = false;
-        //document.getElementById('timer').innerHTML = count;
+        document.getElementById('timer').innerHTML = count;
     }
     function stop(){
         if (!isRunning) {
@@ -142,7 +142,7 @@ function createCounter(){
         isRunning = false;
         count = 0; 
         clearInterval(interval);
-        //document.getElementById('timer').innerHTML = count;
+        document.getElementById('timer').innerHTML = count;
     }
     return{
         start,
