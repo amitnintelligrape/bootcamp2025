@@ -84,19 +84,3 @@ let Car ={
     year: 2025
 }
 console.log(describeCar(Car));
-
-//11. Filter unique array members using Set.
-
-let number = [1, 2, 2, 3, 4, 4, 5]
-const uniqueNumber = [...new Set(number)]; //using Set
-console.log(uniqueNumber);
-
-const uniqueNumber1 = number.filter((value, index, num)=> num.indexOf(value)===index); //using filter
-console.log(uniqueNumber1);
-
-let  member = ["Amit", "Milan", "Amit", "Yogi", "Sahib", "Raushan", "Milan"];
-const uniqueMember = [...new Set(member)]; //using Set
-console.log(uniqueMember);
-
-const uniqueMember1 = member.filter((value, index, mem)=> mem.indexOf(value) === index);// using filter
-console.log(uniqueMember1);
