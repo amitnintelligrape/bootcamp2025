@@ -43,11 +43,11 @@ arr.forEach((val, i) =>{
     }, (i+1)*3000);
 })
 
-for(let i=1; i<=arr.length; i++){
-    setTimeout(function(){
-        console.log(i);
-    }, i*3000)
-}
+// for(let i=1; i<=arr.length; i++){
+//     setTimeout(function(){
+//         console.log(i);
+//     }, i*3000)
+// }
 
 // Q3. Explain difference between Bind and Call (example).
 
@@ -118,12 +118,13 @@ function fTracker(){
 const resutlFunc = fTracker();
 resutlFunc('as');
 resutlFunc('ad');
-resutlFunc('ac');
+resutlFunc('ad');
 
 // Q6. Create a counter using closures.
 function createCounter(){
     let count = 0;
     isRunning = false;
+    isPause = false;
     function start(){
         if (!isRunning) {
             interval = setInterval(()=>{
@@ -132,6 +133,7 @@ function createCounter(){
             }, 800)
         }
         isRunning = true;
+        isPause = false;
     }
     function pause(){
         if (!isRunning) {
@@ -139,13 +141,15 @@ function createCounter(){
         }
         clearInterval(interval)
         isRunning = false;
+        isPause = false;
         document.getElementById('timer').innerHTML = count;
     }
     function stop(){
-        if (!isRunning) {
+        if (isRunning) {
             return;
         }
         isRunning = false;
+        isPause = false;
         count = 0; 
         clearInterval(interval);
         document.getElementById('timer').innerHTML = count;
@@ -172,16 +176,18 @@ function stop(){
 //Q.7  Explain 5 array methods with example.
 //A. Following are the five methods for array
 let array = [1,2,3,4,5,6];
+let mArray = [1,2,3,4,5,6,7,8,9];
 let newArray = [6,7,8,9,10,3,4,5];
 let nestedArray = [1, [2, [3, [4, 5]]]];
+let newArray1 = [6,7,8,9,10,3,4,5,6,7,8];
 // 1. reverse() method
-console.log(array.reverse())
+console.log(mArray.reverse())
 // Here reverse() method do the complete array element in reverse order. It is also modify the Original array.
 
 //2. sort() method
-console.log(newArray.sort()) //output [10,3,4,5,6,7,8,9]
+console.log(newArray1.sort()) //output [10,3,4,5,6,7,8,9]
 // Here sort() method compare the value as a string not numerically. if we need to sort numerically then we have to pass comparition function as below.
-console.log(newArray.sort((a,b)=> a-b)) //output [3,4,5,6,7,8,9,10]
+console.log(newArray1.sort((a,b)=> a-b)) //output [3,4,5,6,7,8,9,10]
 //Also above codes will be modify the Original array.
 
 //3. flat() method
@@ -189,9 +195,9 @@ console.log(nestedArray.flat(Infinity)) //output [1,2,3,4,5]
 //Here flat(Infinity) doing flatten an array of arrays (deeply) recursively. Also it's not modify the original array
 
 //4. concat() Method.
-console.log(array.concat(newArray)) // output: [1,2,3,4,5,6,6,7,8,9,10,3,4,5]
+console.log(array.concat(newArray1)) // output: [1, 2, 3, 4, 5, 6, 3, 4, 5, 6, 6, 7, 7, 8, 8, 9, 10]
 // Here concat() merge newArray under array. It's not modify the original array.
 
 //5. .push() Method
 array.push(newArray) // Here newArray pushed after last number array.
-console.log(array) // Here output will be [1, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10, 3, 4, 5] due to push() modified the original array.
+console.log(array) // Here output will be [1, 2, 3, 4, 5, 6,[6, 7, 8, 9, 10, 3, 4, 5]] due to push() modified the original array.

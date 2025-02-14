@@ -37,6 +37,7 @@
     </style>
 </head>
 <body>
+<h1>Also Outputs are in Console Also:</h1>
 <h3>Q1. Create a hierarchy of person, employee and developers.</h3>
 <pre>
     function Person(name, age){
@@ -262,17 +263,19 @@ num(1,2,3,4,5,6)</em>
 <b>A. Following are the five methods for array</b>
 
 <em>let array = [1,2,3,4,5,6];
-let newArray = [6,7,8,9,10,3,4,5];
-let nestedArray = [1, [2, [3, [4, 5]]]];</em>
+    let mArray = [1,2,3,4,5,6,7,8,9];
+    let newArray = [6,7,8,9,10,3,4,5];
+    let nestedArray = [1, [2, [3, [4, 5]]]];
+    let newArray1 = [6,7,8,9,10,3,4,5,6,7,8];</em>
 
 <b>1. reverse() method</b>
-console.log(array.reverse()) <em>Output[6,5,4,3,2,1]</em>
+console.log(mArray.reverse()) <em>Output[9, 8, 7, 6, 5, 4, 3, 2, 1]</em>
 <b><em>Here reverse() method do the complete array element in reverse order. It is also modify the Original array.</em></b>
 
 <b>2. sort() method</b>
-console.log(newArray.sort()) <em>Output [10,3,4,5,6,7,8,9]</em>
+console.log(newArray1.sort()) <em>Output [10, 3, 4, 5, 6, 6, 7, 7, 8, 8, 9]</em>
 <b><em>Here sort() method compare the value as a string not numerically. if we need to sort numerically then we have to pass comparition function as below.</em></b>
-console.log(newArray.sort((a,b)=> a-b)) //output [3,4,5,6,7,8,9,10]
+console.log(newArray1.sort((a,b)=> a-b))  //output [3, 4, 5, 6, 6, 7, 7, 8, 8, 9, 10]
 <b><em>Also above codes will be modify the Original array.</em></b>
 
 <b>3. flat() method</b>
@@ -280,13 +283,13 @@ console.log(nestedArray.flat(Infinity)) <em>Output [1,2,3,4,5]</em>
 <b><em>Here flat(Infinity) doing flatten an array of arrays (deeply) recursively. Also it's not modify the original array</em></b>
 
 <b>4. concat() Method.</b>
-console.log(array.concat(newArray)) <em>Output: [1,2,3,4,5,6,6,7,8,9,10,3,4,5]</em>
+console.log(array.concat(newArray1))  <em>Output: [1, 2, 3, 4, 5, 6, 3, 4, 5, 6, 6, 7, 7, 8, 8, 9, 10]</em>
 <b><em>Here concat() merge newArray under array. It's not modify the original array.</em></b>
 
 <b>5. .push() Method</b>
 array.push(newArray) <em>>Here newArray pushed after last number array.</em>
 console.log(array) 
-<b><em>Here output will be [1, 2, 3, 4, 5, 6, 6, 7, 8, 9, 10, 3, 4, 5] due to push() method modified the original array.</em></b>
+<b><em>Here output will be [1, 2, 3, 4, 5, 6,[6, 7, 8, 9, 10, 3, 4, 5]] due to push() method modified the original array.</em></b>
 </pre>
 <script src="01_assignment.js"></script>
 </body>
