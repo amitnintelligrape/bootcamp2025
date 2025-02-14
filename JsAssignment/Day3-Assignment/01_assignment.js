@@ -37,11 +37,17 @@ dev.devMessage(); // My Name is Amit Narayan and I am 40 year old. My EMP id is 
 // Q2. Given an array, say [1,2,3,4,5]. Print each element of an array after 3 secs.
 
 const arr = [1,2,3,4,5]
-arr.forEach((val) =>{
+arr.forEach((val, i) =>{
     setTimeout(function(){
        console.log(val);
-    }, val*3000);
+    }, (i+1)*3000);
 })
+
+for(let i=1; i<=arr.length; i++){
+    setTimeout(function(){
+        console.log(i);
+    }, i*3000)
+}
 
 // Q3. Explain difference between Bind and Call (example).
 
