@@ -1,0 +1,17 @@
+//Day 1 React JS
+
+//Q1. Create a simple React app that displays "Hello, World!" on the screen.
+//Ans: Created under Component.
+
+//Q2. How to set up a React project and render a simple component.
+//Ans. First We have to install a node then using npx create-react-app my-proj command we can install a React project with name "my-proj" after installing the react project we have to create a component under src/components and then we have to call it in app.js.
+
+//Q3. Write a functional component that displays the text "Functional Component" and a class component that displays the text "Class Component". Then render both components in the App component.
+
+//Ans. Created under src/component with name FunctionalComp and ClassComp
+
+//Q4. Given the following code, identify the issue and fix it:
+    const element = <h1>Hello, World!;</h1>;
+
+//Ans. In above code the semicolon is a javaScript syntax to terminate the statement. But in the JSX used semicolon inside the content of h1 is not valid. So below is the correct syntax:
+    const element = <h1>Hello, World!</h1>;
