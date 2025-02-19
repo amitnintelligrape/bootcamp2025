@@ -4,7 +4,7 @@
 //Ans. Create under src/component with name Counter
 
 //Q2. Create a counter with increment and decrement buttons.
-//Ans, User the same component of Q1. and write a funtion for increment and decrement as well as added the condition for decrement that decrement count not below to '0' like in minus as per provided information during session.
+//Ans, Use the same component of Q1. and write a funtion for increment and decrement as well as added the condition for decrement that decrement count not below to '0' like in minus as per provided information during session.
 
 //Q3. Create a parent() component that has a message in its state.
 //Ans. Create under src/component with name Parent and there I have created two function in it with name Parent and Child and added message through state.
@@ -13,5 +13,5 @@
 //Ans.Create under src/component with name TodoList and write their add and show todolist based on button click and use useState.
 
 //Q5. Create a component that toggles between two views: "Login" and "Logout".
-//Ans. Create under src/component with name Toggle and write a click event and toggle as well as changes data with single button and also used useState.
+//Ans. Create under src/component with name Toggle and write a click event and on click toggle same button login to logout with using useState.
 
