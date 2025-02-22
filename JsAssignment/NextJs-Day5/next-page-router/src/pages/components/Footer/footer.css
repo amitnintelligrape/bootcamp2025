@@ -1,0 +1,13 @@
+.footer{
+    background: #000;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+.footer ul {
+    text-align: center;
+}
+.footer ul li{
+    color: #fff;
+    display: inline-block;
+    padding: 0 10px;
+}
