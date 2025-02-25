@@ -1,0 +1,17 @@
+/* Button component styles */
+.button {
+    background-color: #0070f3;
+    color: var(--font-color-light); 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #005bb5;
+  }
+  

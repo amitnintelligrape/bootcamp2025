@@ -4,20 +4,20 @@ import './recipies.css';
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 export default function Recipies() {
     const [recipes, setRecipes] = useState([]);
-    // useEffect(()=>{
-    //     const fetchRecipes = async () => {
-    //         const response = await fetch('https://dummyjson.com/recipes');
-    //         const data = await response.json();
-    //         setRecipes(data.recipes.slice(0, 10));
-    //     };
-    //     fetchRecipes();
-    // },[])
-    // useEffect(()=>{
+    //useEffect(()=>{
+    //  const fetchRecipes = async () => {
+    //      const response = await fetch('https://dummyjson.com/recipes');
+    //      const data = await response.json();
+    //      setRecipes(data.recipes.slice(0, 10));
+    //  };
+    //  fetchRecipes();
+    //},[])
+    //useEffect(()=>{
     //     fetch('https://dummyjson.com/recipes')
     //     .then((response)=> response.json())
     //     .then((data)=> setRecipes(data.recipes.slice(0,10)))
     //     .catch((error)=> console.error('The Data is Not Found!', error))
-    // }, []);
+    //}, []);
     useEffect(()=>{
         const fetchData = async ()=>{
             try{
