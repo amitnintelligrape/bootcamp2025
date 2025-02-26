@@ -1,0 +1,29 @@
+.header {
+    width: 100%;
+}
+.header .wrapper--1 {
+    align-items: center;
+    display: flex;
+}
+.logo__wrapper {
+    margin-top: 1.6rem;
+    display: inline-block;
+}
+.region--nav{
+   width: calc(100% - 10rem);
+   text-align:center;
+}
+.menu-level--0 {
+    margin-bottom: 0;
+    vertical-align: sub;
+    display: inline-block;
+}
+
+.navigation__group {
+    position: relative;
+    padding: 0 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    float: left;
+}
