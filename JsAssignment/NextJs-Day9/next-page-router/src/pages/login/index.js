@@ -1,7 +1,7 @@
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import {useState, useEffect} from 'react';
 import { useRouter } from "next/router";
-import LoginButton from "../component/LoginButton";
+import Button from "../component/Button";
 export default function Login() {
   const { data: session } = useSession();
   const [seconds, setSeconds] = useState(5);
@@ -29,8 +29,7 @@ export default function Login() {
           <p>Already logged in, Redirecting you in {seconds}...</p>
         ):(
         <>
-          <h1>Login</h1>
-          <LoginButton />
+          <Button onClick={() => signIn('google')}>Sign in with Google</Button>
         </>
         )}
     </div>

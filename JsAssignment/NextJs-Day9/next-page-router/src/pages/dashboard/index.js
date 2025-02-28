@@ -1,7 +1,7 @@
 import { useSession, signOut } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-
+import Button from "../component/Button";
 export default function Dashboard() {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -30,7 +30,7 @@ export default function Dashboard() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Dashboard</h1> <button onClick={() => signOut()}>Logout</button>
+      <h1>Dashboard</h1><Button  onClick={()=> signOut()}>Logout</Button>
       <p>Welcome, {session.user.name}!</p>
       <h2>User List</h2>
       <ul>
