@@ -32,14 +32,14 @@ const Teacher = ()=>{
           };
           fetchStudents();
       }, []);
-      
+
       const studentsUnderTeacher = students?.filter(
         (student) => student.teacherId === parseInt(selectedTeacherId, 10)
       );
     return(
         <div className='wrapper--1'>
-            <h3><Link href="http://localhost:3000/api/teachers" target='_blank'>Teachers API</Link></h3>
-            <h3><Link href="http://localhost:3000/api/students" target='_blank'>Students API</Link></h3>
+            <h3><Link href="http://localhost:3000/api/teachers" target='_blank'>Teachers API &raquo;</Link></h3>
+            <h3><Link href="http://localhost:3000/api/students" target='_blank'>Students API &raquo;</Link></h3>
             <h1>Teachers List</h1>
             <table border="1" className='min-w-full table-auto border-collapse border border-gray-200'>
               <thead>
