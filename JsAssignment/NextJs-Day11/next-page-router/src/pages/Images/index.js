@@ -2,10 +2,7 @@ import React from "react";
 import Image from 'next/image';
 
 export async function getStaticProps() {
-  // Image URL
   const imageUrl = 'https://dummyjson.com/image/150';
-
-  // Return the URL as part of the props
   return {
     props: {
       imageUrl,    
