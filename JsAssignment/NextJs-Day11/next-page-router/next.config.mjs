@@ -3,10 +3,10 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    fetchCache: 'force-cache', // This sets default fetch cache behavior
+    fetchCache: 'force-cache',
   },
   images: {
-    domains: ['dummyjson.com'], // Allow images from dummyjson.com
+    domains: ['dummyjson.com'],
   },
 };
 
