@@ -1,16 +1,13 @@
 import withBundleAnalyzer from '@next/bundle-analyzer';
 
 const nextConfig = {
-  reactStrictMode: true,
-  experimental: {
-    fetchCache: 'force-cache',
-  },
+  reactStrictMode: true, 
   images: {
-    domains: ['dummyjson.com'],
+    domains: ['dummyjson.com'], 
   },
 };
 
 export default withBundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === 'true',  
   openAnalyzer: false,
 })(nextConfig);

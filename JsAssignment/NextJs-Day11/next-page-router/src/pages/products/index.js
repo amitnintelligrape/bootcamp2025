@@ -19,7 +19,6 @@ const Products = () => {
         }
         fetchData();
     },[])
-    console.log(productData)
     return(
         <table>
             <thead>

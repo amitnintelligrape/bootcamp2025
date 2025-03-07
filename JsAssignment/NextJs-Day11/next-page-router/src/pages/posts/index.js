@@ -1,7 +1,6 @@
 import React from "react";
 import PostCard from "../component/postCard";
 const Posts = ({posts})=>{
-    console.log(posts)
     return(
         <div className="p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts?.map((post)=>(
@@ -17,7 +16,7 @@ export async function getStaticProps() {
     const posts = data.posts;
     return{
         props: {
-            posts,
+            posts
         },
         revalidate: 60,
     }
